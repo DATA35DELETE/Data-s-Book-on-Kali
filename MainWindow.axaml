@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:webviewcontrol="using:WebViewControl"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Data_s_Book_on_Kali.MainWindow"
+        Title="Data's Book on Demo">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="40"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition MaxWidth="40"/>
+                <ColumnDefinition MaxWidth="20"/>
+                <ColumnDefinition MaxWidth="40"/>
+                <ColumnDefinition/>
+                <ColumnDefinition MaxWidth="40"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Width="40" Height="40"
+                    Background="#1E293B" Foreground="White" BorderBrush="#334155" BorderThickness="1"
+                    Content="&lt;" FontSize="23" FontWeight="Black"
+                    
+                    Click="GoBackWebView"/>
+            <Border Grid.Column="1" 
+                    Background="#1E293B" BorderBrush="#334155" BorderThickness="1"/>
+            <Image Grid.Column="2" Name="FaviconImage" Width="32" Height="32" Margin="4"/>
+            <Label Grid.Column="3" Name="WebSiteTitle"
+                   Background="#1E293B" Foreground="White" BorderBrush="#334155" BorderThickness="1"
+                   Content="Data's Book on Demo" FontSize="23" FontWeight="Black"
+                   HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Button Grid.Column="4"
+                    Background="#1E293B" Foreground="White" BorderBrush="#334155" BorderThickness="1"
+                    Width="40" Height="40"
+                    Content=">" FontSize="23" FontWeight="Black"
+                    
+                    Click="GoForwardWebView"/>
+        </Grid>
+
+        <webviewcontrol:WebView Name="Browser"
+                                Grid.Row="1"/>
+    </Grid>
+</Window>
