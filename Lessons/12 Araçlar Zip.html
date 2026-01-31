@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data's Book on Kali</title>
+
+    <link rel="icon" type="image/x-icon" href="../Sources/favicon.png">
+
+    <script src="../Sources/JS/setBackgroundMedia.js"></script>
+
+    <link rel="stylesheet" href="../Sources/JS/hljs/vs2015.css">
+    <script src="../Sources/JS/hljs/highlight.min.js"></script>
+    <script>
+        window.onload = function() {
+            hljs.highlightAll();
+        };
+    </script>
+
+    <link rel="stylesheet" href="../Sources/CSS/main.css">
+</head>
+<body>
+    <h1>Zip</h1>
+
+    <div style="height: 100px;"></div>
+    
+    <div id="mainDiv">
+        <h2>Zip Nedir?</h2>
+        <pre id="preh2">Zip, dosyaları sıkıştırmak için kullanılan bir araçtır.</pre>
+
+        <pre id="preh2">Aynı zamanda şifreleme yaptığı için, siber güvenlikte bolca kullanılır. Zip, şifreli dosyaları oluşturma ve çözme işini yapar. Peki şifreyi bilmiyorsak? İşte bu zamanda Fcrackzip denilen bir aracı kullanıcağız.</pre>
+
+        <pre id="preh2">Şimdi şöyle bir şey yapalım. İlk olarak üç tane dosyayı şifreli bir şekilde sıkıştıralım. Ardından Fcrackzip ve Kali'nin içersindeki rockyou.txt dosyası ile şifreyi kıralım. Ancak dikkat! Eğer bu işlem internette yetkisiz, bir şifreli sıkıştırılmış dosyalara erişim sağlanırsa bizlere büyük yasal sıkıntılar çıkartabilir. Bizler beyaz şapkalı olmalıyız...</pre>
+
+        <h3>Şifreli Sıkıştırılmış Dosya Oluşturma</h3>
+        <pre id="preh3">İlk olarak üç adet dosya oluşturalım ve Nano ile içine bişiler yazalım. Ardından Zip ile onları şifreli şekilde sıkıştıralım.</pre>
+
+        <pre id="codeh3"><code class="language-bash">touch dosya1 dosya2 dosya3
+ls
+
+# zip --password sifremiz olusturulacakZip.zip dosya1 dosya2 dosya3 ...
+zip --password 1234 dosyalarım.zip dosya1 dosya2 dosya3
+
+# Bu kısımda Zip dosyamız oluşucaktır. 
+ls
+
+# dosya1, dosya2 ve dosya3 silelim. Çünkü "dosyalarım.zip" içersinden çıkaracağız
+rm dosya1 dosya2 dosya3
+</code></pre>
+        
+        <div id="divh3Img">
+            <img src="../Bibliography/12 Araçlar Zip/1.png" alt="12.1" width="800px">
+        </div>
+
+        <h3>Fcrackzip ile Şifreli Dosyayı Kırma</h3>
+        <pre id="preh3">Dosyayı kırmadan önce, Fcrackzip ne yapıyor onu anlatalım...</pre>
+
+        <pre id="preh3">Aslında Fcrackzip'in yaptığı şey, tek tek tüm olasılıkları denemek ve eğer dosya açılırsa bildirmek. İşte biz buna BruteForce veya kaba kuvvet diyoruz. Bu işlem saniyede yüz binlerce kez deneniyor. Fakat şöyle bir gerçek varki artık miladını doldurmuş durumda. Çok ufak değişikliklerle BruteForce engellenebilir bir araçtır. Üstelik engellenebilirliğine karşın, çok büyük bir suçu da vardır. Fakat, hala Zip gibi Local dosyalarda yani internete bağlı olmayan dosyalarda işimizi gören bir araçtır.</pre>
+
+        <pre id="preh3">Şimdi ilk olarak şunu yapmamız gerek, Fcrackzip işini yapabilmesi için bizden bir kelime dosyası ister. Normal şartlarda ya internetten veya kendimiz oluştumak zorundaydık ama Kali bizim için bir kelime listesi hazırlayıp sisteme koymuş. Onu bulalım ardından Fcrackzip ile dosyamızı kıralım.</pre>
+
+        <pre id="codeh3"><code class="language-bash"># Eğer sistemimizde yoksa
+sudo apt install fcrackzip
+
+# Kelime dosyasını bulma
+# Genelde: rockyou.txt.gz dosyası /usr/share/wordlists klasöründe yer alır.
+cd ..
+cd ..
+cd usr/share/wordlists
+
+# Zip ile ayıklıyoruz ki içindeki kelime dosyasına erişelim
+sudo gunzip rockyou.txt.gz
+ls
+
+# Ardından ana dizine dönelim ve rockyou.txt dosyası ile şifreli sıkıştırılmış dosyamızı kıralım
+# fcrackzip -D -p kelimeDosyası -u kırılacakDosya.zip
+cd ~
+fcrackzip -D -p /usr/share/wordlists/rockyou.txt -u dosyalarım.zip </code></pre>
+
+        <div id="divh3Img">
+            <img src="../Bibliography/12 Araçlar Zip/2.png" alt="12.2" width="800px">
+        </div>
+
+        <pre id="preh3">Bulunan şifre ile dosyamızı açalım.</pre>
+
+        <pre id="codeh3"><code class="language-bash">ls
+unzip -P 1234 dosyalarım.zip
+ls</code></pre>
+
+        <div id="divh3Img">
+            <img src="../Bibliography/12 Araçlar Zip/3.png" alt="12.3" width="800px">
+        </div>
+    </div>
+
+    <div style="height: 100px;"></div>
+
+    <footer style="position: fixed; left: 0; bottom: 0; width: 100%; background: transparent; text-align: center; padding: 10px 0; z-index: 100;">
+        <div>
+            <a href="./11 Araçlar Exiftool.html" style="margin-right: 20px; cursor:pointer;">
+                &larr; Önceki
+            </a>
+            <a href="./13 Araçlar Steghide.html" style="cursor:pointer;">
+                Sonraki &rarr;
+            </a>
+        </div>
+        <div>
+            <p>&copy; 2026 Data's Book</p>
+        </div>
+
+        <div style="position: absolute; right: 20px; bottom: 20px;">
+            <a href="./1 Kali İçindekinler.html" style="text-decoration: none;">
+                İçindekiler
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
+
+<!-- Muhammet Enes nam-ı diğer Data Delete tarafından sevgi ile yapıldı <3 -->

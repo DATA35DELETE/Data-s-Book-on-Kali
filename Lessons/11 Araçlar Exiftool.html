@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data's Book on Kali</title>
+
+    <link rel="icon" type="image/x-icon" href="../Sources/favicon.png">
+
+    <script src="../Sources/JS/setBackgroundMedia.js"></script>
+
+    <link rel="stylesheet" href="../Sources/JS/hljs/vs2015.css">
+    <script src="../Sources/JS/hljs/highlight.min.js"></script>
+    <script>
+        window.onload = function() {
+            hljs.highlightAll();
+        };
+    </script>
+
+    <link rel="stylesheet" href="../Sources/CSS/main.css">
+</head>
+<body>
+    <h1>Exiftool</h1>
+
+    <div style="height: 100px;"></div>
+    
+    <div id="mainDiv">
+        <h2>Exiftool Nedir?</h2>
+        <pre id="preh2">Exiftool, Phil Harvey tarafından 2003 yılında Perl diliyle yazılmış bir komut satırı aracıdır.</pre>
+
+        <pre id="preh2">Exiftool'un amacı dosyaların Metadata denilen verilerini görüntülemek, silmek ve değiştirmek aracıdır. Peki siber güvenlikte rolü nedir? Tabi ki de iz sürme! Siz eğer bir fotoğraf çekerseniz, fotoğrafın nereden çekildiğinden tutun hangi ISO ayarına kadar bilgiler, çektiğiniz fotoğrafa kayıt edilir. Eğer fotoğrafın Metadata'ları değiştirilmediyse iz sürülebilir. Böylelikle Hacker'ın bıraktığı izlerle yakalanabilir.</pre>
+
+        <h2>Kullanımı</h2>
+
+        <h3>İndirme</h3>
+        <pre id="preh3">Sistemimizde Exiftool yüklümü diye kontrol edelim.</pre>
+
+        <pre id="codeh3"><code class="language-bash">exiftool</code>
+        
+Eğer Syntax hatası aldıysak sistemimizde var demektir. Lakin vermezse.
+
+<code class="language-bash">sudo apt install exiftool</code>
+
+Komutu ile indirelim.</pre>
+
+        <h3>Metadata'ları Değiştirme</h3>
+        <pre id="preh3">Şimdi bir <a href="../Bibliography/11 Araçlar Exiftool/foto.jpg">fotoğrafın</a> Metadata'larını görelim.</pre>
+
+        <pre id="codeh3"><code class="language-bash">exiftool foto.jpg</code></pre>
+
+        <div id="divh3Img">
+            <img src="../Bibliography/11 Araçlar Exiftool/1.png"alt="11.1" width="800px">
+        </div>
+
+        <pre id="preh2">Evet, gördüğümüz gibi bilgiler burada. Şimdi bu kısımda şunu düşünelim. Gizli kalmamız gerek, bu yüzden fotoğrafın kimin tarafından yapıldığını değiştirmemiz gerek. Bunun için ilk önce fotoğrafın bilgilerini bakalım. Ardından "Creator" bilgisini değiştirelim.</pre>
+
+        <pre id="codeh3"><code class="language-bash">exiftool foto.jpg
+
+# Creator etiketine göre. Eğer başka bir etiketi değiştirceksek boşluksuz yazarız
+
+exiftool -m -Creator="Hiç kimse" foto.jpg
+
+exiftool foto.jpg # Creator etiketinde "Hiç kimse" yazmalı
+        </code></pre>
+
+        <div id="divh3Img">
+            <img src="../Bibliography/11 Araçlar Exiftool/2.png"alt="11.2" width="800px">
+        </div>
+
+        <h3>Metadata'ları Silme</h3>
+        <pre id="preh3">Şimdi ise bir Metadata'yı silelim. Gizlilik açısından "Creator" etiketini sileceğim.</pre>
+
+        <pre id="codeh3"><code class="language-bash">exiftool foto.jpg
+
+# Eğer eşittirden sonra boş bırakırsak silinicektir
+exiftool -m -Creator= foto.jpg
+
+# Artık "Creator" diye bir etiket yok
+exiftool foto.jpg
+        </code></pre>
+
+        <div id="divh3Img">
+            <img src="../Bibliography/11 Araçlar Exiftool/3.png" alt="11.3" width="800px">
+        </div>
+
+        <pre id="preh3">Ve artık fotoğraflarınızı daha gizli paylaşabilirsiniz!</pre>
+
+        <h2>Kaynakça</h2>
+        <ul>
+            <li><a href="https://tecnobits.com/tr/exiftool-nasıl-kullanılır/">https://tecnobits.com/tr/exiftool-nasıl-kullanılır/</a></li>
+        </ul>
+    </div>
+
+    <div style="height: 100px;"></div>
+
+    <footer style="position: fixed; left: 0; bottom: 0; width: 100%; background: transparent; text-align: center; padding: 10px 0; z-index: 100;">
+        <div>
+            <a href="./10 Bash Betik Dosyası.html" style="margin-right: 20px; cursor:pointer;">
+                &larr; Önceki
+            </a>
+            <a href="./12 Araçlar Zip.html" style="cursor:pointer;">
+                Sonraki &rarr;
+            </a>
+        </div>
+        <div>
+            <p>&copy; 2026 Data's Book</p>
+        </div>
+
+        <div style="position: absolute; right: 20px; bottom: 20px;">
+            <a href="./1 Kali İçindekinler.html" style="text-decoration: none;">
+                İçindekiler
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
+
+<!-- Muhammet Enes nam-ı diğer Data Delete tarafından sevgi ile yapıldı <3 -->

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data's Book on Kali</title>
+
+    <link rel="icon" type="image/x-icon" href="../Sources/favicon.png">
+
+    <script src="../Sources/JS/setBackgroundMedia.js"></script>
+
+    <link rel="stylesheet" href="../Sources/JS/hljs/vs2015.css">
+    <script src="../Sources/JS/hljs/highlight.min.js"></script>
+    <script>
+        window.onload = function() {
+            hljs.highlightAll();
+        };
+    </script>
+
+    <link rel="stylesheet" href="../Sources/CSS/main.css">
+</head>
+<body>
+    <h1>Kurulum</h1>
+
+    <div style="height: 100px;"></div>
+    
+    <div id="mainDiv">
+        <h2>ISO Dosyası</h2>
+        <pre id="preh2">Kali'yi kurabilmemiz için bize bir "Kali Linux ISO dosyası" gerek. Bunun için Kali'nin <a href="https://www.kali.org/get-kali/#kali-platforms">resmi sistesinden</a>; Eğer bilgisayarımza aynı bir Windows gibi kurucaksak "Installer Images" kısmına, eğer bir sanal makineye kuracaksak "Virtual Machines" kısmına gidelim ve ISO'muzu indirelim.</pre>
+
+        <h2>Rufus ile Yazdırma</h2>
+        <pre id="preh2">Eğer bilgisayarınıza kurmak istiyorsanız, ISO dosyası indikten sonra Rufus adı verilen araç ile bir USB Flash belleğimize yazdırmamız gerekir.</pre>
+
+        <h3>Rufus'u İndirme</h3>
+        <pre id="preh2">Rufus'u indirmek <a href="https://rufus.ie/tr/">resmi sitesinden</a> uygulamasını indirelim.</pre>
+
+        <h3>ISO Dosyasını Rufus'la Yazdırma</h3>
+        <pre id="preh2">İnen ISO dosyamızı, Rufus'u açarak tanımlayalım. "Seç" kısmında ISO dosyamızı bulalım ve "Başlat" butonu ile taktığımız USB Flash belleğimize yazdıralım. İşlem bittiğinde bilgisayarımızı yeniden başlatalım, BIOS menüsüne gidelim ve yazdırdığımız USB Flash belleği seçelim.</pre>
+
+        <h3>Kurulum</h3>
+
+        <pre id="preh3">Gelen ekran böyle olmalı ve "Graphical Install" yazan yere gelip Enter tuşuna basalım.</pre>
+        <div id="divh3Img">
+            <img src="../Bibliography/4 Kali Kurulum.html/1.png" alt="4.1" width="800px">
+        </div>
+
+        <pre id="preh3">Ardından dilimizi ve konumuzu seçiyoruz.</pre>
+        <div id="divh3Img">
+            <img src="../Bibliography/4 Kali Kurulum.html/2.png" alt="4.2" width="800px">
+        </div id="divh3Img">
+
+        <pre id="preh3">Bir sonraki adımda klavye düzenimizi seçiyoruz.</pre>
+        <div id="divh3Img">
+            <img src="../Bibliography/4 Kali Kurulum.html/3.png" alt="4.3" width="800px">
+        </div>
+
+        <pre id="preh3">Ufak bir kurulumun ardından makine adımızı giriyoruz. Bu ad ağdaki ismimiz olucak. Ardından bizden bir alan adı istiyecektir. Onu geçelim.</pre>
+        <div id="divh3Img">
+            <img src="../Bibliography/4 Kali Kurulum.html/4.png" alt="4.4" width="800px">
+        </div>
+
+        <pre id="preh3">Ardından kullanıcı adı istiyecektir. Dilediğiniz ismi girebilirsiniz. Ardından hesap adı ve parola istiyecektir.</pre>
+        <div id="divh3Img">
+            <img src="../Bibliography/4 Kali Kurulum.html/5.png" alt="4.5" width="800px">
+        </div>
+
+        <pre id="preh3">Kurulum ardından hangi diske kurucağını sorucaktır. "Diskin tamamını kullan" seçeneğini seçelim. Ancak dikkat! Bu işlem diskinizdeki tüm verileri silecektir.</pre>
+        <div id="divh3Img">
+            <img src="../Bibliography/4 Kali Kurulum.html/6.png" alt="4.6" width="800px">
+        </div>
+
+        <pre id="preh3">Bu ekrana gelene kadar "Devam" butonuna basalım ve onaylayım. Ardından "Evet" seçeneğini seçerek temel sistemi kuralım.</pre>
+        <div id="divh3Img">
+            <img src="../Bibliography/4 Kali Kurulum.html/7.png" alt="4.7" width="800px">
+        </div>
+
+        <pre id="preh3">Temel sistemin kurulumu ardından bize hangi paketleri kurucağını soruyor. Bu kısımda masaüstü ortamı olarak XFCE kullanıcağım. Masaüstü ortamı ne diye sorucak olursanız; Bir nevi işletim sisteminin ön yüzü sayılabilir. Bunu şuna benzetebiliriz. Linux bir işletim sistemini MacOS gibi bir arayüzü olan bir işletim sistemine benzetebiliriz. Özünde Linux olsada aslında bir MacOS arayüze sahip bir işletim sistemine dönüşür. Daha basit benzetme ile bir ürünün farklı ambalajlara sahip olmasıda bu konuya örnek olarabilir.</pre>
+
+        <pre id="preh3">"Devam" butonuna basıp, kurulum tamamladıktan sonra işlemlerimiz tamamdır.</pre>
+        <div id="divh3Img">
+            <img src="../Bibliography/4 Kali Kurulum.html/8.png" alt="4.8" width="800px">
+        </div>
+
+        <h2>Sanal Makine Kurulum</h2>
+        <pre id="preh2">Takdir edersiniz ki hiç kimse alıştığı ortamdan yani Windows'dan ayrılamak istemez. İşte bunun için sanal makineye kuracağız. Dilediğiniz sanal makineyi indirin ve kurun. Ardından "Virtual Machines" sayfasından indirdiğimiz .7z dosyasını ayıklayalım ve sanal makinemizde kullanalım. Ben Vitraul Machine kullanıcağım. Ve bitti. Çünkü sanal makine sürümünde her şey kurulu gelir!</pre>
+
+        <h2>Arayüz</h2>
+        <pre id="preh2">Kurulum tamamlandıktan sonra gelecek ekran oturum açma ekranıdır. Kurulum kısmında girdiğimiz bilgileri bu kısma girelim ve "Oturum Aç" butonuna basalım.</pre>
+
+        <div id="divh2Img">
+            <img src="../Bibliography/4 Kali Kurulum.html/9.png" alt="4.9" width="800px">
+        </div>
+
+        <pre id="preh2">Ardından bize karşılıcak ekran böyle olmalı.</pre>
+        <div id="divh2Img">
+            <img src="../Bibliography/4 Kali Kurulum.html/10.png" alt="4.10" width="800px">
+        </div>
+
+        <pre id="preh2">Şimdi arayüzdeki kısımları tanıyalım...</pre>
+
+        <h3>Uygulamalar</h3>
+        <pre id="preh3">Arayıp bulabilceğimiz bütün uygulamalarımız buradadır.</pre>
+
+        <div id="divh3Img">
+            <img src="../Bibliography/4 Kali Kurulum.html/11.png" alt="4.11" width="800px">
+        </div>
+
+        <h3>Görev Çubuğu</h3>
+        <pre id="preh3">Açık veya sabitlenmiş uygulamalarımız, CPU ve internet kullanımı, masaüstülerimiz ve pek çok görev düğmemiz bu kısımdadır.</pre>
+
+        <div id="divh3Img">
+            <img src="../Bibliography/4 Kali Kurulum.html/12.png" alt="4.12">
+        </div>
+
+        <h3>Masaüstü</h3>
+        <pre id="preh3">Aktif olarak penceresi olan ve çalışan uygulamalar bu kısımdadır. Yani bizim çalışma ortamamızdır.</pre>
+
+        <div id="divh3Img">
+            <img src="../Bibliography/4 Kali Kurulum.html/13.png" alt="4.13" width="800px">
+        </div>
+
+        <h2>Kaynakça</h2>
+        <ul>
+            <li><a href="https://www.kali.org/get-kali/#kali-platforms">Kali'nin Resmi İndirme Sistesi</a></li>
+            <li><a href="https://rufus.ie/tr/">Rufus'un Resmi Sitesi</a></li>
+        </ul>
+    </div>
+
+    <div style="height: 100px;"></div>
+
+    <footer style="position: fixed; left: 0; bottom: 0; width: 100%; background: transparent; text-align: center; padding: 10px 0; z-index: 100;">
+        <div>
+            <a href="./3 Kali Giriş.html" style="margin-right: 20px; cursor:pointer;">
+                &larr; Önceki
+            </a>
+            <a href="./5 Kali Siber Güvenlik Alanı.html" style="cursor:pointer;">
+                Sonraki &rarr;
+            </a>
+        </div>
+        <div>
+            <p>&copy; 2026 Data's Book</p>
+        </div>
+
+        <div style="position: absolute; right: 20px; bottom: 20px;">
+            <a href="./1 Kali İçindekinler.html" style="text-decoration: none;">
+                İçindekiler
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
+
+<!-- Muhammet Enes nam-ı diğer Data Delete tarafından sevgi ile yapıldı <3 -->

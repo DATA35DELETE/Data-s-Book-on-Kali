@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data's Book on Kali</title>
+
+    <link rel="icon" type="image/x-icon" href="../Sources/favicon.png">
+
+    <script src="../Sources/JS/setBackgroundMedia.js"></script>
+
+    <link rel="stylesheet" href="../Sources/JS/hljs/vs2015.css">
+    <script src="../Sources/JS/hljs/highlight.min.js"></script>
+    <script>
+        window.onload = function() {
+            hljs.highlightAll();
+        };
+    </script>
+
+    <link rel="stylesheet" href="../Sources/CSS/main.css">
+</head>
+<body>
+    <h1>Steghide</h1>
+
+    <div style="height: 100px;"></div>
+    
+    <div id="mainDiv">
+        <h2>Steghide Nedir?</h2>
+        <pre id="preh2">Steghide dosyaları, fotoğraflara gömmek yani gizlemek ve daha sonrasında içersinden çıkarabilmek için kullanılan bir araçtır.</pre>
+
+        <pre id="preh2">Çoğunlukla Hacker'larca kullanılan bu araçlar, masum bir manzara fotoğrafı olarak da gözüksede bir mesajda iletebilir, içerisine gömülen kod ile bilgisayarı ele geçirebilir.</pre>
+
+        <pre id="preh2">Şimdi şunu yapalım, bir metin belgesi oluşturup içerisine "Kali Öğreniyorum" yazıp, ardından  <a href="../Bibliography/13 Araçlar Steghide/foto.jpg">bu fotoğrafa</a> gömelim ve ardından çıkartalım.</pre>
+
+        <pre id="codeh2"><code class="language-bash"># Sistemimizde yoksa
+sudo apt install steghide
+
+# Dosyamızı oluşturalım
+touch dosya.txt
+ls
+
+nano dosya.txt
+
+# Nano #
+Kali Öğreniyorum
+
+# Ctrl + O + Enter, Ctrl + X
+
+# Ardından dosyamızı Steghide ile fotoğrımıza gömelim. Ardından silelim ki fotoğraftan çıkartalım
+# steghide embed -cf fotoğrafDosya -ef gömülecekDosya -p sifre
+steghide embed -cf foto.jpg -ef dosya.txt -p 1234
+
+rm dosya.txt
+
+# Sonra Steghide yardımı ile içinde dosya gömülmüş diye kontrol edelim. Şifre istemelidir. Şifremizi girelim.
+# steghide info fotoğrafDosya
+steghide info dosya.txt
+
+# Son olarak fotoğrafımızın içerisinden dosyamızı çıkarlım ve içeriğini kontrol edelim
+# steghide extract -sf fotoğrafDosya
+steghide extract -sf foto.jpg
+
+ls
+
+cat dosya.txt</code></pre>
+
+        <div id="divh2Img">
+            <img src="../Bibliography/13 Araçlar Steghide/1.png" alt="13.1" width="800px">
+        </div>
+
+        <div id="divh2Img">
+            <img src="../Bibliography/13 Araçlar Steghide/2.png" alt="13.2" width="800px">
+        </div>
+
+    </div>
+
+    <div style="height: 100px;"></div>
+
+    <footer style="position: fixed; left: 0; bottom: 0; width: 100%; background: transparent; text-align: center; padding: 10px 0; z-index: 100;">
+        <div>
+            <a href="./12 Araçlar Zip.html" style="margin-right: 20px; cursor:pointer;">
+                &larr; Önceki
+            </a>
+            <a href="./14 Araçlar Base64.html" style="cursor:pointer;">
+                Sonraki &rarr;
+            </a>
+        </div>
+        <div>
+            <p>&copy; 2026 Data's Book</p>
+        </div>
+
+        <div style="position: absolute; right: 20px; bottom: 20px;">
+            <a href="./1 Kali İçindekinler.html" style="text-decoration: none;">
+                İçindekiler
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
+
+<!-- Muhammet Enes nam-ı diğer Data Delete tarafından sevgi ile yapıldı <3 -->

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data's Book on Kali</title>
+
+    <link rel="icon" type="image/x-icon" href="../Sources/favicon.png">
+
+    <script src="../Sources/JS/setBackgroundMedia.js"></script>
+
+    <link rel="stylesheet" href="../Sources/JS/hljs/vs2015.css">
+    <script src="../Sources/JS/hljs/highlight.min.js"></script>
+    <script>
+        window.onload = function() {
+            hljs.highlightAll();
+        };
+    </script>
+
+    <link rel="stylesheet" href="../Sources/CSS/main.css">
+</head>
+<body>
+    <h1>Basit Dosya İşlemleri</h1>
+
+    <div style="height: 100px;"></div>
+    
+    <div id="mainDiv">
+        <h2>Dosya İşlemleri Nedir?</h2>
+        <pre id="preh2">Dosya İşlemleri, bilgisayarımızdaki dosyaların üzerinde yapılan işlemlere denir. Okuma, silme oluşturma gibi eylemler vardır.</pre>
+
+        <pre id="preh2">Sizlere işletim sistemlerinin bir zamanlar sadece siyah ekran ve beyaz yazılardan ibaret olduğunu söylemiştim. İşte o zamanlarda insanlar o ekran üzerinde; Ls, dir, mkdir gibi komutlarla dosya işlemlerini yaparlardır. Günümüzde bunların yerinde grafiksel arayüzler gelmiş olsada aslında onlarda arka planda aynı komutu çalıştırıyolar. Tek yaptıkları; Kullanıcı butona bastığında şu komutu çalıştır ve çıktıyı görüntüle. Peki biz neden konsol üzerinden bu komutları öğrenelim? Çünkü verimlilik. Evet Linux'da bile belirli başlı dosya yöneticileri var(Örn: Dolphin, Thunar) ve bunlarla o konsol üzeride yapabildiklerimizi yapabiliriz ama grafiksel arayüz hem yavaştır hem de pratik değildir.</pre>
+
+        <pre id="preh2">Örneğin; Bir sürü dosya oluşturmamız gerekiyor. Normal şartlarda sağ tık "Yeni dosya oluştur" ismini düzenli diye uğraşmamız gerekir. Açık konuşalım bu çok uğraştırıcı ve pratik değildir. Bash'te tek bir komutla bütün işlerimizi halledebiliyoruz. İşte bunun için Bash ile dosya işlemlerini öğrenelim!</pre>
+
+        <h2>Ls</h2>
+        <pre id="preh2">Ls, bulunduğumuz klasördeki, dosyaları ve klasörleri görüntüler.</pre>
+
+        <pre id="preh2">Denemek için bir komut satırı açalım. Açldığı kısım /home/kullaniciIsmi klasöründedir. Ardında komut satırına <code class="language-bash">ls</code> komutunu girelim.</pre>
+
+        <div id="divh2Img">
+            <img src="../Bibliography/8 Bash Basit Dosya İşlemleri/1.png" alt="8.1" width="800px">
+        </div>
+
+        <pre id="preh2">Gördüğünüz üzere klasörümüzdeki, klasörler bunlarmış. Renklerden anlaşılcağı üzere mavi renkliler klasördür. Diğer renkliler ise, dosyanın uzantısına göre değişiklik gösterir.</pre>
+
+        <h2>Mkdir</h2>
+        <pre id="preh2">MKdir, klasör oluşturmamızı sağlar. <code class="language-bash">mkdir klasörIsmi1 klasörIsmi2</code> şeklinde de kullanılabilir.</pre>
+
+        <pre id="preh2">En başta sizlere anlattığım tek komut tüm işleri halletme olayı buradan gelir. İstediğimiz isimle klasörleri yazıyoruz ardından bizim için oluşturuyor. Fakat dikkat, eğer boşluklu bir klasör istiyorsak, ismini çift tırnaklar içersinede yazmalıyız. Aksi takdirde istemdiğimiz kadar klasör oluşur.</pre>
+
+        <pre id="preh2">Şimdi klasörümüzde birden fazla ve boşluklu klasörler oluşturalım ve ardından Ls yardımı ile görüntüliyelim.</pre>
+
+        <pre id="codeh2"><code class="language-bash">mkdir klasor1 "Boşluklu Klasör" klasör2 a
+ls</code></pre>
+
+        <div id="divh2Img">
+            <img src="../Bibliography/8 Bash Basit Dosya İşlemleri/2.png" alt="8.2" width="800px">
+        </div>
+
+        <pre id="preh2">Buna benzer bir görüntümüz olmalıdır.</pre>
+
+        <h2>Rmdir</h2>
+        <pre id="preh2">Rmdir, klasörümüzdeki klasörleri silmemizi sağlar. <code class="language-bash">rmdir klasörIsmi1 klasörIsmi2</code> şeklinde de kullanılabilir.</pre>
+
+        <pre id="preh2">Şimdi Mkdir ile oluşturduğumuz klasörleri silelim ve Ls yardımı ile görüntüliyelim.</pre>
+
+        <pre id="codeh2"><code class="language-bash">rmdir klasor1 "Boşluklu Klasör" klasör2 a
+ls</code></pre>
+
+        <div id="divh2Img">
+            <img src="../Bibliography/8 Bash Basit Dosya İşlemleri/3.png" alt="8.3" width="800px">
+        </div>
+
+        <pre id="preh2">Oluşturduğumuz klasörler gördüğünüz gibi silindiler.</pre>
+
+        <h2>Cd</h2>
+        <pre id="preh2">Cd, bulunduğumuz klasörü değiştirmemizi sağlar. <code class="language-bash">cd klasörIsmi</code> şeklinde kullanılır.</pre>
+
+        <pre id="preh2">Şimdi ise bir klasör oluşturalım, Cd yardımı ile içine girelim ve Ls ile kontrol edelim.</pre>
+
+        <pre id="codeh2"><code class="language-bash">mkdir kodlar
+cd kodlar
+ls
+cd ..
+ls</code></pre>
+
+        <div id="divh2Img">
+            <img src="../Bibliography/8 Bash Basit Dosya İşlemleri/4.png" alt="8.4" width="800px">
+        </div>
+
+        <pre id="preh2">Fark etti iseniz <code class="language-bash">cd ..</code> kullandım. Bunun anlamı; Bulunduğunuz klasörün bir üst klasörüne sizi götürür. Yani kolaylık sağlar.</pre>
+
+        <h2>Touch</h2>
+        <pre id="preh2">Touch, dosya oluşturmamızı sağlar. <code class="language-bash">touch dosyaIsmi.uzantisi dosyaIsmi2 "Bu bir Dosya"</code> şeklinde de kullanılabilir.</pre>
+
+        <pre id="preh2">Şimdi oluşturduğumuz klasörümüze gidelim ve bir dosya oluşturlarım. Ardından Ls yardımı ile görüntüliyelim</pre>
+
+        <pre id="codeh2"><code class="language-bash">cd kodlar
+touch dosya
+ls
+cd ..
+ls</code></pre>
+        
+        <div id="divh2Img">
+            <img src="../Bibliography/8 Bash Basit Dosya İşlemleri/5.png" alt="8.5" width="800px">
+        </div>
+
+        <h2>Rm</h2>
+        <pre id="preh2">Rm, dosya silmemizi sağlar. <code class="language-bash">rm dosyaIsmi.uzantisi dosyaIsmi2 "Bu bir Dosya"</code> şeklinde de kullanılabilir.</pre>
+
+        <pre id="preh2">Şimdi tekrar klasörümüze gidelim ve oluşturduğumuz dosyayı silelim. Ardından Ls yardımı ile görüntüliyelim.</pre>
+
+        <pre id="codeh2"><code class="language-bash">cd kodlar
+ls
+rm dosya
+ls
+cd ..
+ls</code></pre>
+
+        <div id="divh2Img">
+            <img src="../Bibliography/8 Bash Basit Dosya İşlemleri/6.png" alt="8.6" width="800px">
+        </div>
+    </div>
+
+    <div style="height: 100px;"></div>
+
+    <footer style="position: fixed; left: 0; bottom: 0; width: 100%; background: transparent; text-align: center; padding: 10px 0; z-index: 100;">
+        <div>
+            <a href="./7 Bash Uygulama Yükleme.html" style="margin-right: 20px; cursor:pointer;">
+                &larr; Önceki
+            </a>
+            <a href="./9 Bash Basit Metin Düzenleme.html" style="cursor:pointer;">
+                Sonraki &rarr;
+            </a>
+        </div>
+        <div>
+            <p>&copy; 2026 Data's Book</p>
+        </div>
+
+        <div style="position: absolute; right: 20px; bottom: 20px;">
+            <a href="./1 Kali İçindekinler.html" style="text-decoration: none;">
+                İçindekiler
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
+
+<!-- Muhammet Enes nam-ı diğer Data Delete tarafından sevgi ile yapıldı <3 -->

@@ -1,0 +1,355 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    background-image: url("../../Media/image/kaliLinux.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;   
+    color: whitesmoke;
+    text-shadow: 2px 2px 8px #222, 0 1px 0 #555;
+}
+
+.video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#arkaplanVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+#mainDiv {
+    position: relative;
+    z-index: 1;
+    width: 95%;
+    margin: auto;
+    height: auto;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+    backdrop-filter: blur(100px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+
+h1 {
+    font-size: 3rem;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    width: fit-content;
+    height: auto;
+    padding: 10px;
+    border-radius: 15px;
+    color: white;
+    opacity: 0.9;
+    backdrop-filter: blur(100px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: 50%;
+    top: 10px;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+}
+
+
+h2, h3 {
+    font-size: 2.5rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: -10px;
+    width: fit-content;
+    height: auto;
+    color: white;
+}
+h3 {margin-left: 2rem;}
+
+pre {
+    font-size: 1.1rem;
+    font-family: 'Times New Roman', Times, serif;
+    margin-bottom: 10px;
+    word-break: keep-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+#preh2 {text-indent: 2em;}
+#preh3 {margin-left: 2rem;text-indent: 2em;}
+
+code {
+    overflow-x: visible;
+    padding: auto;
+    margin: 0;
+}
+#codeh2 {margin-left: 2em;}
+#codeh3 {margin-left: 4em;}
+
+li {
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+    color: white;
+    font-family:'Times New Roman', Times, serif;
+    border-radius: 10px;
+    width: fit-content;
+    list-style-position: inside;
+    text-align: left;
+    display: list-item;
+}
+#listh3 {margin-left: 2em;}
+
+#divh2Img {
+    text-align: center;
+    margin: 0;
+    margin-left: 2em;
+    margin-bottom: 10px;
+}
+#divh2Img img {
+    display: block; 
+}
+
+#divh3Img {
+    text-align: center;
+    margin: 0;
+    margin-left: 4em;
+    margin-bottom: 10px;
+}
+#divh3Img img {
+    display: block; 
+}
+
+#divh2Vid {    
+    text-align: left;
+    margin: 0;
+    margin-left: 2em;
+    margin-bottom: 10px;
+}
+#divh2Vid img {
+    display: block; 
+}
+
+#divh3Vid {
+    margin: 0;
+    margin-left: 4em;
+    margin-bottom: 10px;
+}
+#divh3Vid img {
+    display: block; 
+}
+
+#tableh2 {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.1rem;
+    width: fit-content;
+    margin-left: 2em;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+#tableh2 th, #tableh2 td {
+    margin: 0;
+    text-align: center;
+}
+
+#tableh3 {
+    color: white;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.1rem;
+    width: fit-content;
+    margin-left: 4em;
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+#tableh3 th, #tableh3 td {
+    margin: 0;
+    text-align: center;
+}
+
+link, a {
+    color: cyan;
+    text-decoration: none;
+}
+
+footer {
+    background: transparent;
+    color: #ccc;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer div {
+    margin-bottom: 10px;
+}
+
+footer div a {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+    backdrop-filter: blur(100px);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-right: 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+footer div a:hover {
+    background-color: #666;
+}
+
+footer div p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #ffffff;
+    font-family: sans-serif;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    opacity: 0.9;
+    backdrop-filter: blur(100px);
+    border-radius: 10px;
+    padding: 5px;
+    width: fit-content;
+    margin: auto;
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* ==================== MOBİL ÖZEL DÜZENLEMELER ==================== */
+@media screen and (max-width: 768px) {
+    
+    /* Ana başlık - mobilde daha küçük */
+    h1 {
+        font-size: 1.8rem;
+        padding: 8px 15px;
+        top: 15px;
+        max-width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    /* Alt başlıklar */
+    h2, h3 {
+        font-size: 1.5rem;
+        margin-left: 0;
+    }
+    h3 {
+        margin-left: 1rem;
+    }
+    
+    /* Paragraflar ve pre elementleri */
+    pre {
+        font-size: 0.9rem;
+        overflow-x: auto;
+    }
+    #preh2, #preh3 {
+        margin-left: 0;
+        text-indent: 1em;
+    }
+    
+    /* Kod blokları */
+    #codeh2, #codeh3 {
+        margin-left: 0;
+        font-size: 0.85rem;
+    }
+    code {
+        overflow-x: auto;
+    }
+    
+    /* Liste öğeleri */
+    li {
+        font-size: 1rem;
+        margin-left: 0;
+    }
+    #listh3 {
+        margin-left: 1em;
+    }
+    
+    /* Resimler - mobilde tam genişlik */
+    #divh2Img, #divh3Img {
+        margin-left: 0;
+        text-align: center;
+    }
+    #divh2Img img, #divh3Img img {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Videolar - mobilde tam genişlik */
+    #divh2Vid, #divh3Vid {
+        margin-left: 0;
+        text-align: center;
+    }
+    #divh2Vid video, #divh3Vid video {
+        width: 100% !important;
+        max-width: 100%;
+        height: auto;
+    }
+    
+    /* Tablolar - mobilde kaydırılabilir */
+    #tableh2, #tableh3 {
+        margin-left: 0;
+        font-size: 0.9rem;
+        display: block;
+        overflow-x: auto;
+        max-width: 100%;
+    }
+    
+    /* Footer - mobilde düzenleme */
+    footer {
+        position: relative;
+        padding: 15px 10px;
+    }
+    
+    footer div a {
+        padding: 8px 15px;
+        margin: 5px;
+        font-size: 0.9rem;
+        display: inline-block;
+    }
+    
+    footer div p {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+    
+    /* Footer'daki içindekiler linki */
+    footer div:last-child {
+        position: static;
+        margin-top: 10px;
+    }
+}
+
+/* Çok küçük ekranlar için (mobil dikey) */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 1.4rem;
+        padding: 6px 10px;
+    }
+    
+    h2, h3 {
+        font-size: 1.3rem;
+    }
+    
+    pre {
+        font-size: 0.85rem;
+    }
+    
+    li {
+        font-size: 0.95rem;
+    }
+    
+    footer div a {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+}
