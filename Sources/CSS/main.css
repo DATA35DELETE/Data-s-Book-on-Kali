@@ -1,17 +1,33 @@
-::-webkit-scrollbar {
-    display: none;
-}
+@import url('https://fonts.googleapis.com/css2?family=Offside&display=swap');
 
+
+/* ── Reset & Scrollbar ───────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+    background: rgba(94, 234, 212, 0.25);
+    border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: rgba(94, 234, 212, 0.5); }
+
+/* ── Body & Background ───────────────────────────────────── */
 body {
     background-image: url("../../Media/image/kaliLinux.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
-    background-attachment: fixed;   
-    color: whitesmoke;
-    text-shadow: 2px 2px 8px #222, 0 1px 0 #555;
+    background-attachment: fixed;
+    color: #e8e4db;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+    text-shadow: none;
+    -webkit-font-smoothing: antialiased;
 }
 
+/* ── Video Background ────────────────────────────────────── */
 .video-container {
     position: fixed;
     top: 0;
@@ -26,254 +42,457 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: brightness(0.45) saturate(0.7);
 }
 
-
+/* ── Main Container ──────────────────────────────────────── */
 #mainDiv {
     position: relative;
     z-index: 1;
-    width: 95%;
-    margin: auto;
-    height: auto;
-    padding: 10px;
-    border-radius: 20px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    opacity: 0.9;
-    backdrop-filter: blur(100px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    width: min(92%, 960px);
+    margin: 0 auto;
+    padding: 7rem 3.5rem 4rem;
+    background: rgba(25, 30, 8, 0.35); 
+    border: 0.5px solid rgba(94, 234, 212, 0.12);
+    border-radius: 2px;
+    backdrop-filter: blur(6px) saturate(1.4);
+    -webkit-backdrop-filter: blur(6px) saturate(1.4);
+    box-shadow:
+        0 0 0 0.5px rgba(94, 234, 212, 0.06) inset,
+        0 32px 80px rgba(0, 0, 0, 0.7);
 }
 
-
+/* ── Page Title (fixed) ──────────────────────────────────── */
 h1 {
-    font-size: 3rem;
-    font-family: 'Times New Roman', Times, serif;
+    font-family: "Offside", 'Georgia', serif;
+    font-size: 2rem;
+    font-weight: 300;
+    font-style: italic;
+    letter-spacing: 0.06em;
     text-align: center;
-    width: fit-content;
-    height: auto;
-    padding: 10px;
-    border-radius: 15px;
-    color: white;
-    opacity: 0.9;
-    backdrop-filter: blur(100px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+    color: #e8e4db;
+    text-shadow: none;
+
     position: fixed;
     left: 50%;
-    top: 10px;
-    transform: translate(-50%, -50%);
+    top: 0;
+    transform: translateX(-50%);
     z-index: 100;
+
+    width: auto;
+    padding: 0.6rem 2.5rem;
+    white-space: nowrap;
+
+    background: rgba(25, 30, 8, 0.35); 
+    border-bottom: 0.5px solid rgba(94, 234, 212, 0.2);
+    border-left: 0.5px solid rgba(94, 234, 212, 0.1);
+    border-right: 0.5px solid rgba(94, 234, 212, 0.1);
+    border-radius: 12px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    /* Breathing teal glow — the signature element */
+    box-shadow:
+        0 0 40px rgba(94, 234, 212, 0.08),
+        0 4px 24px rgba(0, 0, 0, 0.5);
+    animation: titleBreath 5s ease-in-out infinite;
 }
 
+@keyframes titleBreath {
+    0%, 100% { box-shadow: 0 0 30px rgba(94, 234, 212, 0.06), 0 4px 24px rgba(0,0,0,0.5); }
+    50%       { box-shadow: 0 0 55px rgba(94, 234, 212, 0.16), 0 4px 24px rgba(0,0,0,0.5); }
+}
 
+/* ── Section Headings ────────────────────────────────────── */
 h2, h3 {
-    font-size: 2.5rem;
-    font-family: 'Times New Roman', Times, serif;
-    margin-bottom: -10px;
-    width: fit-content;
-    height: auto;
-    color: white;
+    font-family: "Offside", 'Georgia', serif;
+    font-weight: 400;
+    color: #f0ece3;
+    margin-top: 3.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.25rem;
 }
-h3 {margin-left: 2rem;}
 
+h2 {
+    font-size: 2rem;
+    letter-spacing: 0.02em;
+    border-left: 2px solid rgba(94, 234, 212, 0.7);
+    padding-left: 1rem;
+    animation: sectionPulse 6s ease-in-out infinite;
+}
+
+h3 {
+    font-size: 1.4rem;
+    font-style: italic;
+    letter-spacing: 0.03em;
+    margin-left: 2rem;
+    border-left: 1px solid rgba(94, 234, 212, 0.35);
+    padding-left: 1rem;
+}
+
+@keyframes sectionPulse {
+    0%, 100% { border-left-color: rgba(94, 234, 212, 0.5); }
+    50%       { border-left-color: rgba(94, 234, 212, 0.9); }
+}
+
+/* ── Body Text (pre) ─────────────────────────────────────── */
 pre {
+    font-family: "Offside", 'Georgia', serif;
     font-size: 1.1rem;
-    font-family: 'Times New Roman', Times, serif;
-    margin-bottom: 10px;
+    font-weight: 300;
+    line-height: 1.85;
+    color: #d4cfc5;
+    margin-bottom: 1.25rem;
     word-break: keep-all;
     word-wrap: break-word;
     white-space: pre-wrap;
+    letter-spacing: 0.01em;
 }
-#preh2 {text-indent: 2em;}
-#preh3 {margin-left: 2rem;text-indent: 2em;}
 
+#preh2  { text-indent: 2em; }
+#preh3  { margin-left: 2rem; text-indent: 2em; }
+
+/* ── Code Blocks ─────────────────────────────────────────── */
 code {
+    font-family: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    font-size: 0.875em;
+    background: rgba(94, 234, 212, 0.07);
+    color: #7eecd8;
+    padding: 0.15em 0.45em;
+    border-radius: 3px;
+    border: 0.5px solid rgba(94, 234, 212, 0.18);
     overflow-x: visible;
-    padding: auto;
-    margin: 0;
+    letter-spacing: 0.02em;
 }
-#codeh2 {margin-left: 2em;}
-#codeh3 {margin-left: 4em;}
 
+#codeh2 { margin-left: 2em; }
+#codeh3 { margin-left: 4em; }
+
+/* ── Lists ───────────────────────────────────────────────── */
 li {
-    margin-bottom: 5px;
+    font-family: "Offside", 'Georgia', serif;
     font-size: 1.1rem;
-    color: white;
-    font-family:'Times New Roman', Times, serif;
-    border-radius: 10px;
+    font-weight: 300;
+    color: #d4cfc5;
+    margin-bottom: 0.5rem;
+    border-radius: 0;
     width: fit-content;
     list-style-position: inside;
     text-align: left;
     display: list-item;
-}
-#listh3 {margin-left: 2em;}
+    word-break: break-all;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    line-height: 1.1;
 
+    /* Subtle teal bullet */
+    list-style-type: none;
+    padding-left: 1.2em;
+    position: relative;
+}
+
+li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: rgba(94, 234, 212, 0.55);
+    font-weight: 300;
+}
+
+#listh3 { margin-left: 2em; }
+
+/* ── Images ──────────────────────────────────────────────── */
 #divh2Img {
     text-align: center;
-    margin: 0;
-    margin-left: 2em;
-    margin-bottom: 10px;
+    margin: 0 0 1.5rem 2em;
 }
 #divh2Img img {
-    display: block; 
+    display: block;
+    border-radius: 4px;
+    border: 0.5px solid rgba(94, 234, 212, 0.15);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+#divh2Img img:hover {
+    border-color: rgba(94, 234, 212, 0.4);
+    box-shadow: 0 8px 50px rgba(94, 234, 212, 0.12), 0 12px 40px rgba(0,0,0,0.55);
 }
 
 #divh3Img {
     text-align: center;
-    margin: 0;
-    margin-left: 4em;
-    margin-bottom: 10px;
+    margin: 0 0 1.5rem 4em;
 }
 #divh3Img img {
-    display: block; 
+    display: block;
+    border-radius: 4px;
+    border: 0.5px solid rgba(94, 234, 212, 0.1);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+#divh3Img img:hover {
+    border-color: rgba(94, 234, 212, 0.35);
+    box-shadow: 0 6px 40px rgba(94, 234, 212, 0.1), 0 10px 30px rgba(0,0,0,0.5);
 }
 
-#divh2Vid {    
+/* ── Videos ──────────────────────────────────────────────── */
+#divh2Vid {
     text-align: left;
-    margin: 0;
-    margin-left: 2em;
-    margin-bottom: 10px;
+    margin: 0 0 1.5rem 2em;
 }
-#divh2Vid img {
-    display: block; 
+#divh2Vid video {
+    display: block;
+    border-radius: 4px;
+    border: 0.5px solid rgba(94, 234, 212, 0.15);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.5);
 }
 
 #divh3Vid {
-    margin: 0;
-    margin-left: 4em;
-    margin-bottom: 10px;
+    margin: 0 0 1.5rem 4em;
 }
-#divh3Vid img {
-    display: block; 
+#divh3Vid video {
+    display: block;
+    border-radius: 4px;
+    border: 0.5px solid rgba(94, 234, 212, 0.1);
+    box-shadow: 0 6px 30px rgba(0, 0, 0, 0.45);
 }
 
+/* ── Tables ──────────────────────────────────────────────── */
 #tableh2 {
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.1rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #d4cfc5;
     width: fit-content;
     margin-left: 2em;
-    border: 1px solid black;
+    margin-bottom: 1.5rem;
+    border: 0.5px solid rgba(94, 234, 212, 0.18);
     border-collapse: collapse;
+    border-radius: 4px;
+    overflow: hidden;
 }
-#tableh2 th, #tableh2 td {
-    margin: 0;
+#tableh2 th {
+    background: rgba(94, 234, 212, 0.08);
+    color: #8fefd8;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    padding: 0.6rem 1.2rem;
+    border-bottom: 0.5px solid rgba(94, 234, 212, 0.25);
     text-align: center;
 }
+#tableh2 td {
+    padding: 0.55rem 1.2rem;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+}
+#tableh2 tr:last-child td { border-bottom: none; }
+#tableh2 tr:hover td { background: rgba(94, 234, 212, 0.04); }
 
 #tableh3 {
-    color: white;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1.1rem;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: #d4cfc5;
     width: fit-content;
     margin-left: 4em;
-    border: 1px solid black;
+    margin-bottom: 1.5rem;
+    border: 0.5px solid rgba(94, 234, 212, 0.14);
     border-collapse: collapse;
 }
-#tableh3 th, #tableh3 td {
-    margin: 0;
+#tableh3 th {
+    background: rgba(94, 234, 212, 0.06);
+    color: #8fefd8;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 0.78rem;
+    padding: 0.6rem 1.2rem;
+    border-bottom: 0.5px solid rgba(94, 234, 212, 0.2);
     text-align: center;
 }
+#tableh3 td {
+    padding: 0.55rem 1.2rem;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.04);
+    text-align: center;
+}
+#tableh3 tr:last-child td { border-bottom: none; }
+#tableh3 tr:hover td { background: rgba(94, 234, 212, 0.03); }
 
+/* ── Links ───────────────────────────────────────────────── */
 link, a {
-    color: cyan;
+    color: #7eecd8;
     text-decoration: none;
+    border-bottom: 0.5px solid rgba(94, 234, 212, 0.3);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+a:hover {
+    color: #adf5e8;
+    border-bottom-color: rgba(94, 234, 212, 0.7);
 }
 
+/* ── Footer ──────────────────────────────────────────────── */
 footer {
     background: transparent;
-    color: #ccc;
+    color: rgba(232, 228, 219, 0.5);
     text-align: center;
-    padding: 20px 0;
-    margin-top: 40px;
+    padding: 3rem 0 2rem;
+    margin-top: 5rem;
 }
 
 footer div {
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
 }
 
 footer div a {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    opacity: 0.9;
-    backdrop-filter: blur(100px);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin-right: 10px;
-    border-radius: 8px;
+    display: inline-block;
+    color: #c8c3b8;
+    border: 0.5px solid rgba(94, 234, 212, 0.22);
+    border-bottom: 0.5px solid rgba(94, 234, 212, 0.22);
+    padding: 0.55rem 1.4rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.4rem;
+    border-radius: 2px;
     cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 400;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: rgba(94, 234, 212, 0.04);
+    backdrop-filter: blur(8px);
+    transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 footer div a:hover {
-    background-color: #666;
+    background: rgba(94, 234, 212, 0.1);
+    color: #9ef5e4;
+    border-color: rgba(94, 234, 212, 0.45);
 }
 
 footer div p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #ffffff;
-    font-family: sans-serif;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-    opacity: 0.9;
-    backdrop-filter: blur(100px);
-    border-radius: 10px;
-    padding: 5px;
+    margin: 1rem auto 0;
+    font-size: 0.78rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    color: rgba(200, 195, 184, 0.55);
+    letter-spacing: 0.04em;
     width: fit-content;
-    margin: auto;
     text-align: center;
-    margin-top: 15px;
+    padding: 0.4rem 1rem;
+    border: 0.5px solid rgba(255,255,255,0.06);
+    border-radius: 2px;
 }
 
-/* ==================== MOBİL ÖZEL DÜZENLEMELER ==================== */
-@media screen and (max-width: 768px) {
+/* ── Scientific Quotes (Bilim Adamı Sözleri) ──────────────── */
+blockquote.scientific-quote {
+    font-family: "Offside", 'Georgia', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    line-height: 1.8;
+    color: #e8e4db;
     
-    /* Ana başlık - mobilde daha küçük */
+    /* Ana şablonun estetiğine uygun arka plan ve kenarlık */
+    background: rgba(94, 234, 212, 0.03); 
+    border-left: 3px solid rgba(94, 234, 212, 0.65);
+    border-right: 0.5px solid rgba(94, 234, 212, 0.08);
+    border-top: 0.5px solid rgba(94, 234, 212, 0.08);
+    border-bottom: 0.5px solid rgba(94, 234, 212, 0.08);
+    
+    border-radius: 4px;
+    padding: 1.75rem 2rem;
+    margin: 2rem 0 2rem 2em; /* Sol hizalamayı korur */
+    position: relative;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+/* Alıntı alanına hover efekti */
+blockquote.scientific-quote:hover {
+    border-left-color: rgba(94, 234, 212, 0.9);
+    background: rgba(94, 234, 212, 0.05);
+}
+
+/* Sözü söyleyen bilim insanının adı */
+blockquote.scientific-quote cite {
+    display: block;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-size: 0.85rem;
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #7eecd8; /* Dokümantasyondaki teal tonu */
+    margin-top: 1rem;
+    text-align: right;
+}
+
+/* Bilim insanının unvanı veya alanı için alt kırılım */
+blockquote.scientific-quote cite span {
+    display: block;
+    font-size: 0.75rem;
+    color: rgba(232, 228, 219, 0.4);
+    font-weight: 300;
+    margin-top: 0.2rem;
+}
+
+/* ============================================================
+   MOBILE — max-width: 768px
+   ============================================================ */
+@media screen and (max-width: 768px) {
+
+    #mainDiv {
+        width: 100%;
+        padding: 5.5rem 1.25rem 2.5rem;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+
     h1 {
-        font-size: 1.8rem;
-        padding: 8px 15px;
-        top: 15px;
-        max-width: 90%;
+        font-size: 1.35rem;
+        padding: 0.5rem 1.25rem;
+        max-width: 94%;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
-    
-    /* Alt başlıklar */
-    h2, h3 {
+
+    h2 {
         font-size: 1.5rem;
         margin-left: 0;
+        margin-top: 2.5rem;
     }
+
     h3 {
+        font-size: 1.2rem;
         margin-left: 1rem;
     }
-    
-    /* Paragraflar ve pre elementleri */
+
     pre {
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         overflow-x: auto;
     }
     #preh2, #preh3 {
         margin-left: 0;
         text-indent: 1em;
     }
-    
-    /* Kod blokları */
+
     #codeh2, #codeh3 {
         margin-left: 0;
-        font-size: 0.85rem;
+        font-size: 0.82rem;
     }
-    code {
-        overflow-x: auto;
-    }
-    
-    /* Liste öğeleri */
+    code { overflow-x: auto; }
+
     li {
-        font-size: 1rem;
+        font-size: 0.95rem;
         margin-left: 0;
     }
-    #listh3 {
-        margin-left: 1em;
-    }
-    
-    /* Resimler - mobilde tam genişlik */
+    #listh3 { margin-left: 1em; }
+
     #divh2Img, #divh3Img {
         margin-left: 0;
         text-align: center;
@@ -283,8 +502,7 @@ footer div p {
         max-width: 100%;
         height: auto;
     }
-    
-    /* Videolar - mobilde tam genişlik */
+
     #divh2Vid, #divh3Vid {
         margin-left: 0;
         text-align: center;
@@ -294,62 +512,69 @@ footer div p {
         max-width: 100%;
         height: auto;
     }
-    
-    /* Tablolar - mobilde kaydırılabilir */
+
     #tableh2, #tableh3 {
         margin-left: 0;
-        font-size: 0.9rem;
+        font-size: 0.82rem;
         display: block;
         overflow-x: auto;
         max-width: 100%;
     }
-    
-    /* Footer - mobilde düzenleme */
+
     footer {
-        position: relative;
-        padding: 15px 10px;
+        padding: 2rem 1rem;
     }
-    
     footer div a {
-        padding: 8px 15px;
-        margin: 5px;
-        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        margin: 4px;
+        font-size: 0.78rem;
         display: inline-block;
     }
-    
     footer div p {
-        font-size: 0.8rem;
-        padding: 8px;
+        font-size: 0.75rem;
+        padding: 0.35rem 0.75rem;
     }
-    
-    /* Footer'daki içindekiler linki */
-    footer div:last-child {
-        position: static;
-        margin-top: 10px;
+    footer div:last-child { position: static; margin-top: 0.75rem; }
+
+    blockquote.scientific-quote {
+        margin-left: 0; /* Mobilde girintiyi sıfırlar */
+        padding: 1.25rem 1.5rem;
+        font-size: 1rem;
     }
 }
 
-/* Çok küçük ekranlar için (mobil dikey) */
+/* ============================================================
+   SMALL MOBILE — max-width: 480px
+   ============================================================ */
 @media screen and (max-width: 480px) {
+
+    #mainDiv {
+        padding: 5rem 1rem 2rem;
+    }
+
     h1 {
-        font-size: 1.4rem;
-        padding: 6px 10px;
+        font-size: 1.15rem;
+        padding: 0.45rem 1rem;
     }
-    
-    h2, h3 {
-        font-size: 1.3rem;
-    }
-    
+
+    h2 { font-size: 1.35rem; }
+    h3 { font-size: 1.1rem; }
+
     pre {
-        font-size: 0.85rem;
+        font-size: 0.88rem;
+        line-height: 1.7;
     }
-    
-    li {
-        font-size: 0.95rem;
-    }
-    
+
+    li { font-size: 0.88rem; }
+
     footer div a {
-        padding: 6px 12px;
-        font-size: 0.85rem;
+        padding: 0.45rem 0.9rem;
+        font-size: 0.74rem;
+    }
+
+    blockquote.scientific-quote {
+        padding: 1rem 1.15rem;
+        font-size: 0.92rem;
+        line-height: 1.6;
     }
 }
